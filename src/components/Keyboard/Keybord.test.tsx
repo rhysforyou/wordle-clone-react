@@ -11,4 +11,22 @@ describe('Keyboard component', () => {
 
     expect(keyPressHandler).toHaveBeenCalledWith('A')
   })
+
+  it('can input a delete command', () => {
+    const deleteHandler = jest.fn()
+    render(<Keyboard onDelete={deleteHandler} />)
+
+    fireEvent.click(screen.getByText(/delete/i, { selector: 'button' }))
+
+    expect(deleteHandler).toHaveBeenCalled()
+  })
+
+  it('can input an submit command', () => {
+    const submitHandler = jest.fn()
+    render(<Keyboard onSubmit={submitHandler} />)
+
+    fireEvent.click(screen.getByText(/submit/i, { selector: 'button' }))
+
+    expect(submitHandler).toHaveBeenCalled()
+  })
 })

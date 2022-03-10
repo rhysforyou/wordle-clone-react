@@ -5,10 +5,6 @@ import styles from './Keyboard.module.css'
 
 const cx = classNames.bind(styles)
 
-interface KeyboardProps {
-  onKeyPress?: (letter: string) => void
-}
-
 interface LetterKeyProps {
   letter: string
   onKeyPress?: (letter: string) => void
@@ -26,7 +22,13 @@ function LetterKey({ letter, onKeyPress }: LetterKeyProps) {
   )
 }
 
-function Keyboard({ onKeyPress }: KeyboardProps) {
+interface KeyboardProps {
+  onKeyPress?: (letter: string) => void
+  onDelete?: () => void
+  onSubmit?: () => void
+}
+
+function Keyboard({ onKeyPress, onDelete, onSubmit }: KeyboardProps) {
   return (
     <div className={styles.container}>
       <div className={styles.row}>
@@ -55,7 +57,9 @@ function Keyboard({ onKeyPress }: KeyboardProps) {
         <span className={styles.spacer} />
       </div>
       <div className={styles.row}>
-        <button className={cx('key', 'keyWide')}>ENTER</button>
+        <button className={cx('key', 'keyWide')} onClick={() => onSubmit?.()}>
+          SUBMIT
+        </button>
         <LetterKey letter="Z" onKeyPress={onKeyPress} />
         <LetterKey letter="X" onKeyPress={onKeyPress} />
         <LetterKey letter="C" onKeyPress={onKeyPress} />
@@ -63,7 +67,9 @@ function Keyboard({ onKeyPress }: KeyboardProps) {
         <LetterKey letter="B" onKeyPress={onKeyPress} />
         <LetterKey letter="N" onKeyPress={onKeyPress} />
         <LetterKey letter="M" onKeyPress={onKeyPress} />
-        <button className={cx('key', 'wideKey')}>⌫</button>
+        <button className={cx('key', 'wideKey')} onClick={() => onDelete?.()}>
+          DELETE
+        </button>
       </div>
     </div>
   )
