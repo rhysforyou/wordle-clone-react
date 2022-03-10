@@ -1,0 +1,40 @@
+.container {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  height: 12vw;
+  gap: 0.5rem;
+}
+
+.key {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background-color: lightgray;
+  flex: 1;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.key:active {
+  background-color: gray;
+}
+
+.wideKey {
+  flex-basis: 1.5;
+  flex-grow: 1.5;
+  flex-shrink: 0;
+}
+
+.spacer {
+  flex: 0.5;
+}

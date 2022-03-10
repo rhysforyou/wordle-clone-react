@@ -10,8 +10,8 @@ interface GameRowProps {
 function GameRow({ guess }: GameRowProps) {
   return (
     <div className={styles.row}>
-      {Array.from(guess).map((letter) => (
-        <GameTile letter={letter} />
+      {Array.from(guess).map((letter, i) => (
+        <GameTile key={i} letter={letter} />
       ))}
     </div>
   )

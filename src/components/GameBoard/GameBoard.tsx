@@ -8,8 +8,8 @@ function GameBoard() {
 
   return (
     <div className={styles.board}>
-      {GUESSES.map((guess) => (
-        <GameRow guess={guess} />
+      {GUESSES.map((guess, i) => (
+        <GameRow key={i} guess={guess} />
       ))}
     </div>
   )
