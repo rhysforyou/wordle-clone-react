@@ -1,9 +1,9 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import App from './App'
+import Header from './Header'
 
-test('renders learn react link', () => {
-  render(<App />)
+test('renders title', () => {
+  render(<Header />)
   const titleElement = screen.getByText(/wordle/i)
   expect(titleElement).toBeInTheDocument()
 })
